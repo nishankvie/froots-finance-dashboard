@@ -1,0 +1,16 @@
+note_id,client_id,date,note_text,added_by
+1,1001,2026-02-15,Client called to ask about the recent market dip in emerging markets. Reassured her the portfolio is aligned with long-term strategy. No changes requested.,Lisa Wagner
+2,1001,2026-01-10,Annual review completed. Anna is happy with performance and plans to increase monthly deposit to 350 EUR next quarter.,Lisa Wagner
+3,1002,2026-02-20,Markus inquired about bond allocation. Explained the conservative weighting rationale. Client satisfied with current approach.,Thomas Kern
+4,1003,2026-03-05,Sophie flagged concern about YTD performance. Sent reassurance email and scheduled a follow-up call for next week.,Lisa Wagner
+5,1004,2026-02-28,Thomas confirmed house purchase timeline is still 3–5 years away. Recommended maintaining current balanced allocation.,Anna Reiter
+6,1006,2025-12-10,Wolfgang requested a pension projection report. Sent PDF summary. No portfolio changes required.,Thomas Kern
+7,1007,2026-03-08,Katharina has been logging in frequently. Called proactively. She was anxious about news coverage of tech stocks. Calmed concerns and reminded of long-term strategy.,Lisa Wagner
+8,1008,2026-01-18,Peter asked about adding a second goal (travel fund). Explained we focus on single long-term goals. He will reconsider.,Anna Reiter
+9,1009,2026-03-01,Maria reviewed annual statement. Satisfied with conservative approach. No changes.,Thomas Kern
+10,1013,2026-03-09,Eva concerned about recent negative performance. Sent market context email. Flagged for follow-up if logins continue to increase.,Lisa Wagner
+11,1024,2026-03-09,Gerald's aggressive profile showing significant drawdown. Proactively reached out via phone but no answer. Left voicemail.,Anna Reiter
+12,1030,2026-03-10,Oliver has highest login count this week and worst performance. Support ticket raised for urgent callback.,Lisa Wagner
+13,1021,2025-11-15,Renate has not logged in since December. Two missed deposits flagged. Sent reactivation email. No response yet.,Thomas Kern
+14,1028,2026-01-15,Bernhard inactive for several months. Phone call attempt unanswered. Second attempt scheduled.,Anna Reiter
+15,1035,2026-03-01,Veronika researching house purchase timelines. Confirmed 3-year horizon. Portfolio is on track.,Lisa Wagner

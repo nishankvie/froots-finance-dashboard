@@ -1,0 +1,51 @@
+client_id,name,age,risk_profile,portfolio_value_eur,investment_goal,months_since_joining,monthly_deposit,last_login_date,login_count_this_week,portfolio_performance_pct,missed_deposits_last_3_months
+1001,Anna Gruber,34,balanced,47200.00,Pension,28,300.00,2026-03-09,2,4.3,0
+1002,Markus Bauer,52,conservative,112500.00,Pension,61,500.00,2026-02-10,1,1.8,0
+1003,Sophie Hofer,29,growth,18600.00,Wealth Growth,14,200.00,2026-03-10,7,-6.2,1
+1004,Thomas Reiter,45,balanced,63400.00,House Purchase,39,400.00,2026-03-08,3,3.1,0
+1005,Laura Steiner,38,growth,34100.00,Wealth Growth,22,250.00,2026-03-07,4,5.7,0
+1006,Wolfgang Fuchs,61,conservative,198700.00,Pension,84,0.00,2026-01-15,1,0.9,0
+1007,Katharina Schwarz,27,aggressive,9800.00,Wealth Growth,8,150.00,2026-03-10,9,-8.4,2
+1008,Peter Eder,48,balanced,81300.00,Emergency Fund,45,350.00,2026-03-06,2,2.6,0
+1009,Maria Weiss,55,conservative,145600.00,Pension,72,600.00,2026-03-01,1,1.2,0
+1010,Johannes Pichler,33,growth,26700.00,House Purchase,19,220.00,2026-03-09,3,6.1,0
+1011,Sabine Leitner,41,balanced,58900.00,Wealth Growth,35,380.00,2026-03-05,2,3.8,0
+1012,Andreas Huber,50,conservative,92100.00,Pension,58,450.00,2026-02-20,1,1.5,0
+1013,Eva Moser,31,growth,21400.00,Wealth Growth,16,180.00,2026-03-10,6,-5.8,1
+1014,Florian Mayr,43,balanced,69800.00,Emergency Fund,42,310.00,2026-03-08,2,2.9,0
+1015,Claudia Wagner,36,growth,31200.00,House Purchase,24,260.00,2026-03-04,3,4.4,0
+1016,Heinrich Berger,58,conservative,134500.00,Pension,76,550.00,2026-01-20,0,0.7,1
+1017,Petra Schneider,44,balanced,54300.00,Wealth Growth,31,290.00,2026-03-09,2,3.2,0
+1018,Josef Kaller,39,balanced,41800.00,Emergency Fund,26,270.00,2026-03-07,1,2.1,0
+1019,Birgit Wimmer,47,conservative,87600.00,Pension,53,420.00,2026-02-28,1,1.4,0
+1020,Stefan Mayer,30,growth,14200.00,Wealth Growth,11,160.00,2026-03-10,5,-4.1,0
+1021,Renate Fischer,62,conservative,178900.00,Pension,91,650.00,2025-12-15,0,0.6,2
+1022,Christian Holzer,35,balanced,38700.00,House Purchase,21,230.00,2026-03-08,3,3.5,0
+1023,Monika Auer,49,conservative,103200.00,Pension,64,480.00,2026-03-03,1,1.1,0
+1024,Gerald Brunner,26,aggressive,7400.00,Wealth Growth,6,120.00,2026-03-10,8,-9.1,3
+1025,Ingrid Hofmann,53,conservative,121800.00,Pension,67,510.00,2026-02-15,1,1.3,0
+1026,Klaus Müller,40,balanced,52100.00,Wealth Growth,29,280.00,2026-03-06,2,2.8,0
+1027,Silvia Krenn,32,growth,22900.00,House Purchase,17,195.00,2026-03-09,4,5.2,0
+1028,Bernhard Schmid,57,conservative,156300.00,Pension,79,580.00,2026-01-08,0,0.8,1
+1029,Helga Novak,65,conservative,212400.00,Pension,96,700.00,2025-11-30,0,0.5,0
+1030,Oliver Pöschl,28,aggressive,5900.00,Wealth Growth,5,100.00,2026-03-10,10,-10.2,2
+1031,Alexandra Roth,37,balanced,44600.00,Education,23,240.00,2026-03-07,2,3.0,0
+1032,Martin Schuster,46,balanced,72400.00,Pension,41,360.00,2026-03-05,1,2.4,0
+1033,Ursula Lang,54,conservative,96700.00,Pension,69,460.00,2026-02-25,1,1.0,0
+1034,Daniel Koller,25,aggressive,4800.00,Wealth Growth,4,80.00,2026-03-09,6,-7.8,1
+1035,Veronika Haas,42,balanced,61500.00,House Purchase,38,320.00,2026-03-08,2,2.7,0
+1036,Gerhard Wolf,59,conservative,167800.00,Pension,82,620.00,2026-01-25,1,0.9,0
+1037,Gabriele Stadler,33,growth,19800.00,Education,15,175.00,2026-03-10,3,4.9,0
+1038,Roland Huemer,51,conservative,108900.00,Pension,62,490.00,2026-03-02,1,1.2,0
+1039,Karin Fuchs,45,balanced,66200.00,Wealth Growth,40,340.00,2026-03-06,2,3.3,0
+1040,Lukas Brandner,24,aggressive,6300.00,Wealth Growth,3,90.00,2026-03-10,7,-8.9,2
+1041,Doris Ebner,48,balanced,78100.00,Emergency Fund,46,370.00,2026-03-04,2,2.5,0
+1042,Helmut Preis,60,conservative,143700.00,Pension,75,560.00,2026-02-05,1,0.7,0
+1043,Simone Gruber,30,growth,16500.00,Wealth Growth,12,155.00,2026-03-09,4,5.5,0
+1044,Norbert Ziegler,44,balanced,55800.00,House Purchase,32,295.00,2026-03-07,2,3.1,0
+1045,Beatrix Kaufmann,38,balanced,49300.00,Education,27,310.00,2026-03-05,1,2.9,0
+1046,Werner Kern,56,conservative,131400.00,Pension,73,530.00,2026-01-30,0,0.8,1
+1047,Andrea Binder,35,growth,27800.00,Wealth Growth,20,210.00,2026-03-08,3,4.7,0
+1048,Franz Ortner,63,conservative,189600.00,Pension,88,670.00,2025-12-20,0,0.6,0
+1049,Susanne Kellner,40,balanced,57400.00,Wealth Growth,33,305.00,2026-03-06,2,3.4,0
+1050,Michael Brandl,29,growth,23600.00,House Purchase,18,185.00,2026-03-09,3,5.9,0

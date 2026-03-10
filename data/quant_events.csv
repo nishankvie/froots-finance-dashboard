@@ -1,0 +1,21 @@
+event_id,timestamp,event_type,reason,affected_clients,severity,etf_ticker,client_specific_name
+1,2026-03-10 10:32:00,Rebalance,Volatility spike in US equities pushed VWCE.DE allocation 3% above target threshold across growth and balanced portfolios,210,warning,VWCE.DE,
+2,2026-03-10 09:10:00,ETF Allocation Adjusted,Emerging markets volatility increase — EIMI.L weight reduced by 2% across growth profiles following CAPE ratio signal,148,warning,EIMI.L,
+3,2026-03-10 07:45:00,Deposit Sweep,Monthly deposits processed and allocated to underweight positions per client targets — all 312 recurring clients processed,312,info,,
+4,2026-03-09 16:20:00,Risk Alert,Three clients in aggressive profile show drawdown exceeding 8% — immediate support review recommended,3,critical,,
+5,2026-03-09 14:05:00,Rebalance,AGGG.L bond allocation drifted below target due to equity outperformance — rebalanced back to target weights,187,info,AGGG.L,
+6,2026-03-09 11:30:00,ETF Allocation Adjusted,WSML.L small-cap weight reduced ahead of anticipated ECB rate decision — affected growth and aggressive profiles,95,warning,WSML.L,
+7,2026-03-08 15:00:00,Rebalance,Quarterly rebalancing cycle completed — all 445 portfolios returned within 1% of strategic targets,445,info,,
+8,2026-03-08 09:00:00,Risk Alert,CAPE ratio for US equities crossed 32 — algorithm reduced VWCE.DE exposure by 1.5% for conservative profiles automatically,89,warning,VWCE.DE,
+9,2026-03-07 13:45:00,ETF Allocation Adjusted,Emerging markets CAPE ratio improvement — EIMI.L weight increased by 1% for growth and aggressive profiles,201,info,EIMI.L,
+10,2026-03-07 10:10:00,Client Alert,Irregular deposit pattern detected — two clients flagged for manual review,2,critical,,Katharina Schwarz
+11,2026-03-06 16:50:00,Rebalance,Currency hedging adjustment — EUR/USD shift impacted IUSV.DE exposure in balanced portfolios,134,info,IUSV.DE,
+12,2026-03-06 11:20:00,Risk Alert,Panic login pattern detected — 4 clients logged in 7 or more times during the market dip — support outreach recommended,4,critical,,
+13,2026-03-05 14:30:00,ETF Allocation Adjusted,Global bond yields rose above threshold — AGGG.L allocation increased by 1% for conservative profiles,176,info,AGGG.L,
+14,2026-03-05 09:00:00,Deposit Sweep,Monthly recurring deposits for March processed — 398 clients,398,info,,
+15,2026-03-04 15:15:00,Rebalance,Post-volatility rebalance — portfolios rebalanced back to strategic weights after last week spike normalised,312,info,,
+16,2026-03-03 10:00:00,Risk Alert,WSML.L small-cap drawdown exceeded 12% — review triggered for aggressive portfolios with weight above 7%,18,warning,WSML.L,
+17,2026-03-01 09:00:00,Deposit Sweep,February month-end deposit sweep completed — minor delays for 3 clients flagged for follow-up,3,warning,,
+18,2026-02-28 14:00:00,ETF Allocation Adjusted,End of month rebalancing signal — minor drift corrections applied across all risk profiles,445,info,,
+19,2026-02-25 11:20:00,Rebalance,VWCE.DE outperformance triggered automatic trim — proceeds allocated to AGGG.L in conservative portfolios,89,info,VWCE.DE,
+20,2026-02-20 09:30:00,Client Alert,Client flagged for proactive outreach — login activity unusually low for 45+ days,1,warning,,Wolfgang Fuchs

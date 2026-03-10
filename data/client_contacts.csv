@@ -1,0 +1,21 @@
+contact_id,client_id,contact_date,contact_type,agent_name,description,outcome
+1,1001,2026-02-15,Phone Call,Lisa Wagner,Client called regarding emerging markets exposure. Explained strategy rationale.,Resolved — no changes
+2,1001,2026-01-10,Meeting,Lisa Wagner,Annual portfolio review meeting.,Completed — positive feedback
+3,1002,2026-02-20,Phone Call,Thomas Kern,Discussed bond allocation and conservative weighting.,Resolved — client satisfied
+4,1003,2026-03-05,Email,Lisa Wagner,Sent reassurance email about YTD performance and market context.,Awaiting response
+5,1004,2026-02-28,Phone Call,Anna Reiter,Reviewed house purchase goal timeline and allocation strategy.,Completed — no changes
+6,1006,2025-12-10,Email,Thomas Kern,Sent pension projection PDF report on request.,Completed — report delivered
+7,1007,2026-03-08,Phone Call,Lisa Wagner,Proactive outreach due to high login frequency. Calmed concerns about tech exposure.,Resolved — client reassured
+8,1008,2026-01-18,Chat,Anna Reiter,Client asked about adding second investment goal.,Completed — single goal maintained
+9,1009,2026-03-01,Meeting,Thomas Kern,Annual statement review.,Completed — no changes requested
+10,1010,2026-02-10,Email,Lisa Wagner,Sent quarterly portfolio update.,Completed — read confirmed
+11,1011,2026-03-01,Phone Call,Thomas Kern,Client called to discuss allocation after reading about market volatility.,Resolved — no action needed
+12,1013,2026-03-09,Email,Lisa Wagner,Sent market context and performance explanation email.,Awaiting response
+13,1014,2026-02-20,Phone Call,Anna Reiter,Discussed emergency fund goal and liquidity options.,Completed — no changes
+14,1024,2026-03-09,Phone Call,Anna Reiter,Attempted proactive outreach. No answer. Voicemail left.,No response — retry scheduled
+15,1030,2026-03-10,Phone Call,Lisa Wagner,Urgent callback raised. Client expressed panic about losses.,In progress — follow-up needed
+16,1021,2025-11-15,Email,Thomas Kern,Reactivation email sent due to inactivity and missed deposits.,No response
+17,1028,2026-01-15,Phone Call,Anna Reiter,Attempted contact for inactivity review. No answer.,No response — second attempt scheduled
+18,1035,2026-03-01,Chat,Lisa Wagner,Discussed 3-year house purchase timeline.,Completed — portfolio on track
+19,1012,2026-02-22,Email,Thomas Kern,Quarterly newsletter and portfolio update sent.,Completed
+20,1025,2026-02-18,Email,Lisa Wagner,Sent annual fee statement and portfolio summary.,Completed
