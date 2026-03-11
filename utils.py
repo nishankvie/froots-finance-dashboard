@@ -100,6 +100,23 @@ def churn_color(risk: str) -> str:
 # ── Sidebar renderer ──────────────────────────────────────────────────────────
 
 def render_sidebar():
+    import streamlit.components.v1 as components
+
+    components.html("""
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NB5QZVMMX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3NB5QZVMMX');
+    </script>
+    """, height=0)
+
+
+
+
+
+
     """
     Renders the persistent froots sidebar on every page.
     Includes: branding, KPI metrics, global search, and active client indicator.
