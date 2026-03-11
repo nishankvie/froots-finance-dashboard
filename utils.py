@@ -59,10 +59,10 @@ def compute_health_score(client_row) -> int:
     """
     days_since_login = (pd.Timestamp(date.today()) - client_row['last_login_date']).days
 
-    login_score    = min(client_row['login_count_this_week'], 5) / 5 * 25
-    deposit_score  = 25.0 if client_row['monthly_deposit'] > 0 else 0.0
+    login_score     = min(client_row['login_count_this_week'], 5) / 5 * 25
+    deposit_score   = 25.0 if client_row['monthly_deposit'] > 0 else 0.0
     portfolio_score = min(client_row['portfolio_value_eur'] / 50_000, 1.0) * 25
-    recency_score  = 25.0 if days_since_login <= 30 else 0.0
+    recency_score   = 25.0 if days_since_login <= 30 else 0.0
 
     return int(login_score + deposit_score + portfolio_score + recency_score)
 
@@ -100,30 +100,45 @@ def churn_color(risk: str) -> str:
 # ── Sidebar renderer ──────────────────────────────────────────────────────────
 
 def render_sidebar():
-    import streamlit.components.v1 as components
-
-    components.html("""
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NB5QZVMMX"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3NB5QZVMMX');
-    </script>
-    """, height=0)
-
-
-
-
-
-
     """
     Renders the persistent froots sidebar on every page.
-    Includes: branding, KPI metrics, global search, and active client indicator.
-    Call this at the top of every page after loading clients + aum data.
+    Includes: GA4 tracking, branding, KPI metrics, global search, and active client indicator.
+    Call this at the top of every page.
     """
-    clients  = load_clients()
-    aum_df   = load_aum_history()
+    import streamlit.components.v1 as components
+
+    GA_ID = 'G-3NB5QZVMMX'
+    components.html(f"""
+<script>
+(function() {{
+    var GA_ID = '{GA_ID}';
+    var p = window.parent;
+
+    // Inject gtag library into parent document head once
+    if (!p.document.querySelector('script[src*="' + GA_ID + '"]')) {{
+        var s = p.document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        p.document.head.appendChild(s);
+    }}
+
+    // Set up dataLayer and gtag in parent window
+    p.dataLayer = p.dataLayer || [];
+    p.gtag = p.gtag || function() {{ p.dataLayer.push(arguments); }};
+
+    // Fire page_view with parent URL and title
+    p.gtag('js', new Date());
+    p.gtag('config', GA_ID, {{
+        'page_location': p.location.href,
+        'page_title': p.document.title,
+        'send_page_view': true
+    }});
+}})();
+</script>
+""", height=0)
+
+    clients = load_clients()
+    aum_df  = load_aum_history()
 
     total_aum     = clients['portfolio_value_eur'].sum()
     annual_fee    = total_aum * 0.01
@@ -193,7 +208,6 @@ def render_sidebar():
         st.metric('Annual Fee Revenue', f'€{annual_fee:,.0f}')
 
         st.divider()
-
 
         # ── Active client indicator ────────────────────────────────────────
         if 'selected_client_id' in st.session_state:
