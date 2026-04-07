@@ -115,8 +115,8 @@ def _color_churn(val):
 
 styled = (
     display_df.style
-    .applymap(_color_health, subset=['Health Score'])
-    .applymap(_color_churn,  subset=['Churn Risk'])
+    .map(_color_health, subset=['Health Score'])
+    .map(_color_churn,  subset=['Churn Risk'])
 )
 st.dataframe(styled, use_container_width=True, hide_index=True)
 
