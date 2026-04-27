@@ -1,51 +1,68 @@
 import pandas as pd
 import streamlit as st
 from datetime import date, datetime
+import os
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL") or st.secrets["DATABASE_URL"]
+
+@st.cache_resource
+def get_engine():
+    return create_engine(DATABASE_URL)
 
 # ── Data loaders ─────────────────────────────────────────────────────────────
 
-@st.cache_data
+@st.cache_data(ttl=300)
+
 def load_clients():
-    df = pd.read_csv('data/clients.csv')
+
+    engine = get_engine()
+
+    df = pd.read_sql("SELECT * FROM clients", engine)
+
     df['last_login_date'] = pd.to_datetime(df['last_login_date'])
+
     return df
 
-
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_portfolios():
-    return pd.read_csv('data/client_portfolios.csv')
+    engine = get_engine()
+    return pd.read_sql("SELECT * FROM client_portfolios", engine)
 
-
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_quant_events():
-    df = pd.read_csv('data/quant_events.csv')
+    engine = get_engine()
+    df = pd.read_sql("SELECT * FROM quant_events", engine)
     df['timestamp'] = pd.to_datetime(df['timestamp'])
     df['etf_ticker'] = df['etf_ticker'].fillna('')
     df['client_specific_name'] = df['client_specific_name'].fillna('')
     return df
 
-
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_notes():
-    df = pd.read_csv('data/client_notes.csv')
+    engine = get_engine()
+    df = pd.read_sql("SELECT * FROM client_notes", engine)
     df['date'] = pd.to_datetime(df['date'])
     return df
 
 
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_contacts():
-    df = pd.read_csv('data/client_contacts.csv')
+    engine = get_engine()
+    df = pd.read_sql("SELECT * FROM client_contacts", engine)
     df['contact_date'] = pd.to_datetime(df['contact_date'])
     return df
 
 
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_aum_history():
-    df = pd.read_csv('data/aum_history.csv')
+    engine = get_engine()
+    df = pd.read_sql("SELECT * FROM aum_history", engine)
     df['date'] = pd.to_datetime(df['date'])
     return df
-
 
 # ── Score computation ─────────────────────────────────────────────────────────
 

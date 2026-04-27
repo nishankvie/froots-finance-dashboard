@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import date, datetime, timedelta
 import utils
-
+from sqlalchemy import text
 st.set_page_config(
     page_title='Client Portfolio — froots',
     layout='wide',
@@ -315,25 +315,31 @@ with st.form('add_note_form', clear_on_submit=True):
     note_author = st.text_input('Your name', placeholder='e.g. Lisa Wagner')
     note_text   = st.text_area('Note', placeholder='Type advisor note here…')
     submitted   = st.form_submit_button('Save Note')
+
     if submitted:
         if not note_text.strip():
             st.warning('Note text cannot be empty.')
         else:
-            notes_df = utils.load_notes()
-            next_id  = int(notes_df['note_id'].max()) + 1 if not notes_df.empty else 1
-            new_row  = pd.DataFrame([{
-                'note_id':  next_id,
-                'client_id': cid,
-                'date':     date.today().isoformat(),
-                'note_text': note_text.strip(),
-                'added_by': note_author.strip() if note_author.strip() else 'Unknown'
-            }])
-            updated = pd.concat([notes_df, new_row], ignore_index=True)
-            updated.to_csv('data/client_notes.csv', index=False)
-            st.cache_data.clear()
+            engine = utils.get_engine()
+
+            with engine.connect() as conn:
+                conn.execute(
+                    text("""
+                    INSERT INTO client_notes (client_id, date, note_text, added_by)
+                    VALUES (:cid, NOW(), :note, :author)
+                    """),
+                    {
+                        "cid": cid,
+                        "note": note_text.strip(),
+                        "author": note_author.strip() if note_author.strip() else "Unknown"
+                    }
+                )
+                conn.commit()
+
+            utils.load_notes.clear()
             st.success('Note saved.')
             st.rerun()
-
+            
 st.divider()
 
 # ── Section 6: ETF Alerts for This Client ────────────────────────────────────
@@ -412,9 +418,9 @@ if not client_contacts.empty:
     st.dataframe(disp_contacts, use_container_width=True, hide_index=True)
 else:
     st.caption('No contact history yet.')
-
 with st.form('add_contact_form', clear_on_submit=True):
     st.markdown('**Log New Contact**')
+
     fc1, fc2, fc3 = st.columns(3)
     with fc1:
         contact_date = st.date_input('Date', value=date.today())
@@ -431,19 +437,27 @@ with st.form('add_contact_form', clear_on_submit=True):
         if not description.strip():
             st.warning('Description cannot be empty.')
         else:
-            contacts_df = utils.load_contacts()
-            next_id     = int(contacts_df['contact_id'].max()) + 1 if not contacts_df.empty else 1
-            new_row     = pd.DataFrame([{
-                'contact_id':   next_id,
-                'client_id':    cid,
-                'contact_date': contact_date.isoformat(),
-                'contact_type': contact_type,
-                'agent_name':   agent_name.strip() if agent_name.strip() else 'Unknown',
-                'description':  description.strip(),
-                'outcome':      outcome.strip()
-            }])
-            updated = pd.concat([contacts_df, new_row], ignore_index=True)
-            updated.to_csv('data/client_contacts.csv', index=False)
-            st.cache_data.clear()
+            engine = utils.get_engine()
+
+            with engine.connect() as conn:
+                conn.execute(
+                    text("""
+                    INSERT INTO client_contacts 
+                    (client_id, contact_date, contact_type, agent_name, description, outcome)
+                    VALUES (:cid, :date, :ctype, :agent, :desc, :outcome)
+                    """),
+                    {
+                        "cid": cid,
+                        "date": contact_date,
+                        "ctype": contact_type,
+                        "agent": agent_name.strip() if agent_name.strip() else "Unknown",
+                        "desc": description.strip(),
+                        "outcome": outcome.strip()
+                    }
+                )
+                conn.commit()
+
+            utils.load_contacts.clear()
             st.success('Contact logged.')
             st.rerun()
+            

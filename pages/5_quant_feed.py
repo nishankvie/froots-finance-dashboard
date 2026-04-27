@@ -65,6 +65,7 @@ if keyword.strip():
 filtered = filtered.sort_values('timestamp', ascending=False).reset_index(drop=True)
 
 st.divider()
+from sqlalchemy import text
 
 # ── Section 2: Create New Alert ───────────────────────────────────────────────
 with st.expander('➕ Post New Alert', expanded=False):
@@ -82,17 +83,18 @@ with st.expander('➕ Post New Alert', expanded=False):
             new_reason   = st.text_area('Reason / description', height=120, placeholder='Plain English explanation…')
 
         submitted = st.form_submit_button('Post Alert', type='primary')
+        
         if submitted:
             if not new_reason.strip():
                 st.warning('Reason cannot be empty.')
             else:
-                ev_df   = utils.load_quant_events()
-                next_id = int(ev_df['event_id'].max()) + 1 if not ev_df.empty else 1
+                engine = utils.get_engine()
 
-                # Auto-detect affected clients
+                # Calculate affected clients (keep your logic — it's good)
                 affected_count = 0
                 affected_names = []
                 etf_clean = new_etf.strip().upper()
+
                 if etf_clean:
                     matches = portfolios[portfolios['etf'].str.upper() == etf_clean]
                     affected_ids = matches['client_id'].unique()
@@ -101,19 +103,25 @@ with st.expander('➕ Post New Alert', expanded=False):
                         clients['client_id'].isin(affected_ids)
                     ]['name'].tolist()
 
-                new_row = pd.DataFrame([{
-                    'event_id':             next_id,
-                    'timestamp':            datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'event_type':           new_type,
-                    'reason':               new_reason.strip(),
-                    'affected_clients':     affected_count,
-                    'severity':             new_severity,
-                    'etf_ticker':           new_etf.strip(),
-                    'client_specific_name': new_client.strip()
-                }])
-                updated = pd.concat([ev_df, new_row], ignore_index=True)
-                updated.to_csv('data/quant_events.csv', index=False)
-                st.cache_data.clear()
+                with engine.connect() as conn:
+                    conn.execute(
+                        text("""
+                        INSERT INTO quant_events
+                        (timestamp, event_type, reason, affected_clients, severity, etf_ticker, client_specific_name)
+                        VALUES (NOW(), :etype, :reason, :affected, :severity, :etf, :client)
+                        """),
+                        {
+                            "etype": new_type,
+                            "reason": new_reason.strip(),
+                            "affected": affected_count,
+                            "severity": new_severity,
+                            "etf": new_etf.strip(),
+                            "client": new_client.strip()
+                        }
+                    )
+                    conn.commit()
+
+                utils.load_quant_events.clear()
 
                 if affected_count > 0:
                     names_preview = ', '.join(affected_names[:5])
@@ -123,6 +131,7 @@ with st.expander('➕ Post New Alert', expanded=False):
                     )
                 else:
                     st.success('Alert posted.')
+
                 st.rerun()
 
 st.divider()
